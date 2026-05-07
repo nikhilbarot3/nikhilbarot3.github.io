@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Barot | AI/ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0b1120;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.3);
+            --nav-bg: rgba(11, 17, 32, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        /* --- Global Section Styles --- */
+        section {
+            padding: 100px 20px 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .banner-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: -80px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-dark);
+            z-index: 10;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .typing-container {
+            height: 30px;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            font-weight: 400;
+        }
+
+        /* --- About Section --- */
+        .about-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-blue);
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px 40px 50px;
+            position: relative;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--bg-dark);
+            border: 3px solid var(--accent-blue);
+            top: 15px;
+            border-radius: 50%;
+            left: 12px;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .timeline-content h3 { color: #fff; margin-bottom: 5px; }
+        .timeline-content h4 { color: var(--accent-blue); font-weight: 400; margin-bottom: 10px; font-size: 0.95rem; }
+        .timeline-content ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+        .timeline-content li { margin-bottom: 8px; }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skill-bar-container { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem;}
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--accent-blue);
+            border-radius: 5px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .tags-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- Contact & Footer --- */
+        footer {
+            background: var(--bg-card);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .contact-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover { color: var(--accent-blue); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .skills-grid { grid-template-columns: 1fr; gap: 20px; }
+            .banner-container { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">NB.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="banner-container">
+            <img src="banner.png" alt="JPMorgan Oracle Banner" class="banner-img">
+        </div>
+        
+        <img src="profile.png" alt="Nikhil Barot" class="profile-img">
+        
+        <div class="hero-text">
+            <h1>Nikhil Barot</h1>
+            <div class="typing-container">
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <p>
+                AI / Machine Learning Engineer with 10+ years of experience in the IT industry building intelligent systems, automation solutions, and enterprise-scale platforms. I specialize in AI orchestration, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and scalable cloud deployments. Throughout my career at giants like JPMorgan Chase & Co and Oracle, I have driven high-impact engineering outcomes, improved productivity, and deployed reliable AI frameworks in complex financial environments.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>AI/ML Researcher</h3>
+                    <h4>Central Michigan University | May 2025 - Present</h4>
+                    <ul>
+                        <li>Developed adaptive neural network models analyzing real-world healthcare data (ECG) to support predictive insights for complex clinical decision systems.</li>
+                        <li>Built a predictive maintenance deep learning model for turbojet engines, achieving 85%+ prediction accuracy, enabling proactive maintenance strategies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>AI/ML Engineer</h3>
+                    <h4>Office of Information & Technology | May 2025 - Aug 2025</h4>
+                    <ul>
+                        <li>Built Generative AI solutions using LLM frameworks to automate enterprise workflows and improve internal data-driven decision making.</li>
+                        <li>Designed and deployed Retrieval-Augmented Generation (RAG) systems integrating vector databases and LLMs to improve response accuracy.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Associate</h3>
+                    <h4>JPMorgan Chase & Co | Aug 2021 - Dec 2024</h4>
+                    <ul>
+                        <li>Built a GenAI-powered engineering automation platform using GPT-4, generating automation code and reducing development time by 60%.</li>
+                        <li>Architected an autonomous agent-based system integrated with Jira that generated, executed, and reported test cases in sandbox environments.</li>
+                        <li>Designed LLM evaluation pipelines to measure model accuracy and optimize prompt behavior.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Staff Consultant</h3>
+                    <h4>Oracle (Client - State Street Bank) | Oct 2018 - Aug 2021</h4>
+                    <ul>
+                        <li>Supported end-to-end validation of ETF Options Trading platforms, ensuring integrity of order management and trade execution.</li>
+                        <li>Collaborated with trading stakeholders to deliver feature enhancements across derivatives systems, resulting in zero production defects.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Proficiency</h2>
+        
+        <div class="skills-grid">
+            <div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Python & AI Frameworks</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>LLMs & Prompt Engineering</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>RAG & Vector Databases</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>SQL & Database Architecture</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>C++ & Java</span><span>80%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span>Cloud Deployment (AWS/GCP)</span><span>80%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tags-container">
+            <span class="tag">LangChain</span>
+            <span class="tag">DSPy</span>
+            <span class="tag">Llama-3</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">Apache Spark</span>
+            <span class="tag">Docker / Kubernetes</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">FastAPI</span>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="skills-grid">
+            <div class="about-card" style="text-align: left;">
+                <h3 style="color: var(--accent-blue); margin-bottom: 5px;">Master of Science in Computer Science</h3>
+                <p style="color: #fff; font-weight: 600;">Central Michigan University</p>
+                <p style="font-size: 0.9rem;">Graduating May 2026</p>
+                <br>
+                <h3 style="color: var(--accent-blue); margin-bottom: 5px;">Bachelor of Engineering in IT</h3>
+                <p style="color: #fff; font-weight: 600;">Mumbai University</p>
+                <p style="font-size: 0.9rem;">June 2015</p>
+            </div>
+            <div class="about-card" style="text-align: left;">
+                <h3 style="color: var(--accent-blue); margin-bottom: 15px;">Certifications</h3>
+                <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.8;">
+                    <li><strong>NVIDIA:</strong> Fundamentals of Deep Learning (2025)</li>
+                    <li><strong>Oracle:</strong> Cloud Infrastructure Data Science Professional (2025)</li>
+                    <li><strong>Oracle:</strong> Cloud Generative AI Professional (2025)</li>
+                    <li><strong>Oracle:</strong> AI Vector Search Certified Professional (2025)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="margin-bottom: 20px; color: #fff;">Let's Connect</h2>
+        <div class="contact-links">
+            <a href="mailto:nikhilbarot3@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/nikhil-barot" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/nikhilbarot3" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--accent-blue); margin-right: 8px;"></i> Farmington Hills, MI</p>
+        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.5;">&copy; 2026 Nikhil Barot. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Typing Effect Logic
+        const textArray = ["AI/ML Engineer", "Generative AI Specialist", "LLM Systems Architect"];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typeSpeed = 100;
+        const eraseSpeed = 50;
+        const delayBetweenWords = 2000;
+        const typewriterElement = document.getElementById("typewriter");
+
+        function type() {
+            if (charIndex < textArray[textIndex].length) {
+                typewriterElement.textContent += textArray[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typeSpeed);
+            } else {
+                setTimeout(erase, delayBetweenWords);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typewriterElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, eraseSpeed);
+            } else {
+                textIndex++;
+                if (textIndex >= textArray.length) textIndex = 0;
+                setTimeout(type, typeSpeed);
+            }
+        }
+
+        // Start typing effect on load
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(type, 1000);
+        });
+
+        // Active Navigation Highlight on Scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
